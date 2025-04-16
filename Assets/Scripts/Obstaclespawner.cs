@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject[] obstaclePrefabs; // Array de prefabs (asignados en el Inspector)
+    public GameObject[] obstaclePrefabs;
     public float spawnInterval = 2f;
     public float spawnDistance = 10f;
     public float minX = -3f, maxX = 3f;
@@ -27,11 +27,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnRandomObstacle()
     {
-        // 1. Elige un prefab aleatorio del array
         int randomIndex = Random.Range(0, obstaclePrefabs.Length);
         GameObject obstacleToSpawn = obstaclePrefabs[randomIndex];
 
-        // 2. Calcula posición aleatoria
         float randomX = Random.Range(minX, maxX);
         Vector3 spawnPosition = new Vector3(
             randomX,
@@ -39,7 +37,6 @@ public class ObstacleSpawner : MonoBehaviour
             playerTransform.position.z + spawnDistance
         );
 
-        // 3. Instancia el prefab correcto
         Instantiate(obstacleToSpawn, spawnPosition, Quaternion.identity);
     }
 }
