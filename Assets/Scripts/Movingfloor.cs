@@ -31,4 +31,10 @@ public class MovingFloor : MonoBehaviour
             playerTransform.position.z + 30f // Ajusta según necesidad
         );
     }
+    // En MovingFloor.cs
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, new Vector3(10, 0.1f, 100));
+    }
 }
